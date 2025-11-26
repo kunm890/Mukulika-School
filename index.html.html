@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mukulika School</title>
+  <meta name="description" content="Mukulika School - Learn. Grow. Shine." />
+  <style>
+    :root{--accent:#2b6cb0;--dark:#0f1724;--muted:#6b7280;--card:#ffffff}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f7fafc;color:#0b1320}
+    header{background:linear-gradient(90deg,#ffffff, #f1f5f9);box-shadow:0 2px 6px rgba(16,24,40,0.06);position:sticky;top:0;z-index:40}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+    .nav-links{display:flex;gap:12px}
+    .nav-links a{padding:10px 12px;border-radius:8px;text-decoration:none;color:#0b1320;font-weight:600}
+    .nav-links a.active, .nav-links a:hover{background:rgba(43,108,176,0.12)}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;margin-top:18px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .notice-board{position:relative}
+    .notice-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .notice-list{max-height:400px;overflow:auto}
+    .notice-item{padding:10px;border-radius:8px;border-left:4px solid var(--accent);margin-bottom:10px;background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+    /* sections */
+    section{padding:40px 0}
+    .section-title{font-size:20px;font-weight:700;margin-bottom:12px}
+    .about-grid{display:grid;grid-template-columns:1fr 300px;gap:18px}
+
+    /* Admissions tabs */
+    .tabs{display:flex;gap:8px;margin-bottom:12px}
+    .tab{padding:8px 12px;border-radius:8px;cursor:pointer;background:#eef2ff;font-weight:600}
+    .tab.active{background:var(--accent);color:white}
+
+    /* curriculum */
+    .curriculum-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+    .class-card{padding:12px;border-radius:10px;background:#fff}
+    .lesson-plan{margin-top:8px;padding:12px;border-radius:8px;background:#fbfbff}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    /* footer */
+    footer{padding:18px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* whatsapp floating */
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.15);z-index:60}
+    .whatsapp img{width:28px}
+
+    /* responsive */
+    @media(max-width:880px){.hero{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">MS</div>
+          <div>
+            <div style="font-weight:800">Mukulika School</div>
+            <div style="font-size:12px;color:var(--muted)">Nurturing young minds</div>
+          </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home" data-link="home" class="active">Home</a>
+          <a href="#about" data-link="about">About</a>
+          <a href="#admissions" data-link="admissions">Admissions</a>
+          <a href="#academics" data-link="academics">Academics</a>
+          <a href="#gallery" data-link="gallery">Gallery</a>
+          <a href="#contact" data-link="contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home">
+      <div class="hero">
+        <div>
+          <div class="card">
+            <h1 style="margin:0">Welcome to Mukulika School</h1>
+            <p style="color:var(--muted)">A safe, caring and stimulating learning environment for early years and primary classes.</p>
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <a class="tab" href="#admissions">Apply Now</a>
+              <a class="tab" href="#contact">Contact Us</a>
+            </div>
+            <hr style="margin:18px 0">
+            <div class="grid">
+              <div class="card" style="padding:12px">Latest News<br><small class="muted">Open Day: Dec 10, 2025</small></div>
+              <div class="card" style="padding:12px">Events<br><small class="muted">Sports Day preparations ongoing</small></div>
+              <div class="card" style="padding:12px">Notices<br><small class="muted">Fee schedule for 2025-26 released</small></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice board on right side -->
+        <aside class="notice-board card">
+          <div class="notice-head"><strong>Notice Board</strong><small style="color:var(--muted)">Updated: 26 Nov 2025</small></div>
+          <div class="notice-list" id="noticeList">
+            <div class="notice-item"><strong>Admission Open</strong><div style="font-size:13px;color:var(--muted)">Admissions for 2026 session are open for Nursery – Class 4.</div></div>
+            <div class="notice-item"><strong>Open House</strong><div style="font-size:13px;color:var(--muted)">Parent-Teacher meet on 10 Dec 2025.</div></div>
+            <div class="notice-item"><strong>Holiday</strong><div style="font-size:13px;color:var(--muted)">School closed on 25 Dec 2025.</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">About Mukulika School</div>
+      <div class="about-grid">
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>To create a happy learning community where every child is encouraged to discover their unique talents and love for learning.</p>
+
+          <h4>Our Values</h4>
+          <ul>
+            <li>Care & Compassion</li>
+            <li>Curiosity & Creativity</li>
+            <li>Safety & Inclusion</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Quick Facts</h4>
+          <p><strong>Established:</strong> 2020</p>
+          <p><strong>Classes:</strong> Nursery – Class 4</p>
+          <p><strong>Contact:</strong> 7557053401</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+    <section id="admissions">
+      <div class="section-title">Admissions</div>
+      <div class="card">
+        <div class="tabs" role="tablist">
+          <div class="tab active" data-tab="how">How to Apply</div>
+          <div class="tab" data-tab="form">Application Form</div>
+          <div class="tab" data-tab="curriculum">Curriculum</div>
+        </div>
+
+        <div id="admissionContent">
+          <div data-content="how">
+            <h4>How to Apply</h4>
+            <ol>
+              <li>Read the admission instructions and age criteria.</li>
+              <li>Fill the application form (link available in Application Form tab).</li>
+              <li>Upload necessary documents and submit the form.</li>
+              <li>School will contact you for verification and fee payment.</li>
+            </ol>
+          </div>
+
+          <div data-content="form" style="display:none">
+            <h4>Application Form</h4>
+            <p>The online application form is hosted on Google Drive. <br>
+            <strong>Replace the placeholder link in the site with your Google Drive form link.</strong></p>
+            <p><a id="appFormLink" href="https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_APPLICATION_FORM_LINK" target="_blank">Open Application Form (Google Drive placeholder)</a></p>
+          </div>
+
+          <div data-content="curriculum" style="display:none">
+            <h4>Curriculum</h4>
+            <p>Click the "Academics" tab in the top navigation to view full lesson plans per class, or view basic overview below.</p>
+            <ul>
+              <li>Early Years: Play-based learning, language readiness, numeracy basics.</li>
+              <li>Primary: Foundational literacy, mathematics, environmental science, arts and physical education.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMICS (Curriculum & Lesson Plans) -->
+    <section id="academics">
+      <div class="section-title">Academics & Curriculum</div>
+      <div class="card">
+        <p>Below are sample yearly lesson-plan outlines for each class. These are editable; replace with your full year-by-year plans.</p>
+
+        <div class="curriculum-tabs" id="classTabs">
+          <div class="tab active" data-class="nursery">Nursery</div>
+          <div class="tab" data-class="lkg">L.K.G</div>
+          <div class="tab" data-class="ukg">U.K.G</div>
+          <div class="tab" data-class="c1">Class 1</div>
+          <div class="tab" data-class="c2">Class 2</div>
+          <div class="tab" data-class="c3">Class 3</div>
+          <div class="tab" data-class="c4">Class 4</div>
+        </div>
+
+        <div id="classContent">
+          <!-- Nursery -->
+          <div class="class-card" data-classcontent="nursery">
+            <h4>Nursery — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Socialization, oral language games, motor skills, colors & shapes.
+              <br><strong>Term 2:</strong> Phonemic awareness, pre-writing activities, number sense (1–10), nature walks.
+              <br><strong>Term 3:</strong> Storytelling, songs, seasonal projects, show-and-tell, readiness for LKG.
+            </div>
+          </div>
+
+          <!-- LKG -->
+          <div class="class-card" data-classcontent="lkg" style="display:none">
+            <h4>L.K.G — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Alphabet recognition, counting to 20, fine motor skill practice.
+              <br><strong>Term 2:</strong> Simple words and sight-words, basic addition & subtraction, environmental awareness.
+              <br><strong>Term 3:</strong> Reading short sentences, handwriting formation, arts & craft themes.
+            </div>
+          </div>
+
+          <!-- UKG -->
+          <div class="class-card" data-classcontent="ukg" style="display:none">
+            <h4>U.K.G — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Fluent letter sounds, number bonds to 20, oral fluency sessions.
+              <br><strong>Term 2:</strong> Basic grammar (nouns/verbs), problem solving, simple science experiments.
+              <br><strong>Term 3:</strong> Reading comprehension starters, project work, readiness for Class 1.
+            </div>
+          </div>
+
+          <!-- Class 1 -->
+          <div class="class-card" data-classcontent="c1" style="display:none">
+            <h4>Class 1 — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Phonics, number sense to 100, environmental studies basics.
+              <br><strong>Term 2:</strong> Simple sentence construction, addition & subtraction strategies, art integration.
+              <br><strong>Term 3:</strong> Story comprehension, measurement & geometry basics, project presentation.
+            </div>
+          </div>
+
+          <!-- Class 2 -->
+          <div class="class-card" data-classcontent="c2" style="display:none">
+            <h4>Class 2 — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Reading fluency, place value, local geography & science observations.
+              <br><strong>Term 2:</strong> Paragraph writing, multiplication introduction, plant & animal studies.
+              <br><strong>Term 3:</strong> Creative writing, fraction basics, simple experiments & field trips.
+            </div>
+          </div>
+
+          <!-- Class 3 -->
+          <div class="class-card" data-classcontent="c3" style="display:none">
+            <h4>Class 3 — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Reading comprehension, multiplication & division, water cycle & environment.
+              <br><strong>Term 2:</strong> Grammar building, measurement, local history & Civics introduction.
+              <br><strong>Term 3:</strong> Creative projects, basic data handling, science projects.
+            </div>
+          </div>
+
+          <!-- Class 4 -->
+          <div class="class-card" data-classcontent="c4" style="display:none">
+            <h4>Class 4 — Yearly Lesson Plan (Overview)</h4>
+            <div class="lesson-plan">
+              <strong>Term 1:</strong> Advanced comprehension, long division, energy & resources topics.
+              <br><strong>Term 2:</strong> Paragraph & essay writing, fractions & decimals, ecosystem studies.
+              <br><strong>Term 3:</strong> Project-based learning, basic map skills, exam preparation and revision.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="section-title">Gallery</div>
+      <div class="card gallery" id="galleryGrid">
+        <!-- Placeholder images. Replace with real images in /assets/images/ or your GitHub repo -->
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=1" alt="gallery1">
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=2" alt="gallery2">
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=3" alt="gallery3">
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=4" alt="gallery4">
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=5" alt="gallery5">
+        <img src="https://source.unsplash.com/collection/1118905/800x600?sig=6" alt="gallery6">
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">Contact Us</div>
+      <div class="card">
+        <p><strong>Phone:</strong> <a href="tel:+917557053401">7557053401</a> (WhatsApp available)</p>
+        <p><strong>Address:</strong> Mukulika School, Your Street, Your City</p>
+        <p><strong>Contact Form:</strong> The contact form is hosted on Google Drive. Replace the link below with your form link.</p>
+        <p><a id="contactFormLink" href="https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_CONTACT_FORM_LINK" target="_blank">Open Contact Form (Google Drive placeholder)</a></p>
+        <hr>
+        <p>If you'd like to chat on WhatsApp, click the green button at the bottom-right.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© Mukulika School — All rights reserved</div>
+  </footer>
+
+  <!-- WhatsApp floating button + small chatbot quick replies (opens WhatsApp chat) -->
+  <a class="whatsapp" id="whatsappBtn" target="_blank" href="https://api.whatsapp.com/send?phone=917557053401&text=Hello%20Mukulika%20School%2C%20I%20have%20a%20query.">
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M20.52 3.48A11.9 11.9 0 0012 0C5.37 0 .02 5.35.02 12a11.9 11.9 0 003.48 8.52L0 24l3.6-1.02A11.9 11.9 0 0012 24c6.63 0 12-5.35 12-12 0-3.2-1.25-6.18-3.48-8.52zM12 21.6c-2.07 0-4.01-.62-5.66-1.68l-.4-.25-2.13.6.57-1.98-.26-.4A9.6 9.6 0 012.4 12 9.6 9.6 0 0112 2.4 9.6 9.6 0 0121.6 12 9.6 9.6 0 0112 21.6z'/><path d='M17.9 14.2c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.68.15s-.78.96-.96 1.15c-.18.18-.36.2-.66.05-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.27-.02-.42.13-.56.13-.13.3-.36.45-.54.15-.18.2-.3.3-.5.1-.18 0-.35-.02-.5-.02-.15-.66-1.5-.9-2.05-.24-.55-.48-.47-.66-.47-.17 0-.36 0-.55 0-.18 0-.47.05-.72.35-.25.3-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.95 2.95 4.73 4.02 1.32.55 2.35.88 3.16 1.12 1.33.38 2.54.33 3.49.2.92-.13 2.05-.84 2.34-1.64.3-.8.3-1.48.21-1.64-.08-.16-.27-.26-.58-.41z' /></svg>" alt="wa">
+  </a>
+
+  <script>
+    // Simple client-side router: highlight nav link for sections
+    const links = document.querySelectorAll('#navLinks a');
+    links.forEach(a => a.addEventListener('click', (e)=>{
+      links.forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+    }));
+
+    // Admissions tabs
+    document.querySelectorAll('#admissions .tab').forEach(t=>t.addEventListener('click', (e)=>{
+      const tab = e.currentTarget.dataset.tab;
+      document.querySelectorAll('#admissions .tab').forEach(x=>x.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.querySelectorAll('#admissionContent > div').forEach(c=>c.style.display='none');
+      document.querySelector('#admissionContent > div[data-content="'+tab+'"]')?.style && (document.querySelector('#admissionContent > div[data-content="'+tab+'"]').style.display='block');
+    }));
+
+    // Curriculum class tabs
+    document.querySelectorAll('#classTabs .tab').forEach(t=>t.addEventListener('click', (e)=>{
+      const cls = e.currentTarget.dataset.class;
+      document.querySelectorAll('#classTabs .tab').forEach(x=>x.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.querySelectorAll('[data-classcontent]').forEach(c=>c.style.display='none');
+      const el = document.querySelector('[data-classcontent="'+cls+'"]');
+      if(el) el.style.display='block';
+    }));
+
+    // Notice: you can programmatically update notices from repo JSON or CMS. For now it's static.
+
+    // Simple WhatsApp quick replies UI (floating mini-menu)
+    const wa = document.getElementById('whatsappBtn');
+    wa.addEventListener('contextmenu', (ev)=>{ev.preventDefault();alert('Tip: Click to open WhatsApp chat. Right-click disabled.');});
+
+    // Accessibility: keyboard navigation for tabs
+    document.querySelectorAll('.tab').forEach(t=>{t.setAttribute('tabindex',0);t.addEventListener('keypress',(e)=>{if(e.key==='Enter') t.click();});});
+  </script>
+</body>
+</html>
